@@ -1,15 +1,49 @@
-//for runnug backend and frontend server
- npm run dev
+# ▶️ Running the Project
 
-//for running musicgen server 
+## 1. Start Frontend & Backend
 
+From the project root, run:
+
+```bash
+npm run dev
+```
+
+This command starts both the **Frontend** and **Backend** servers.
+
+---
+
+## 2. Start the MusicGen AI Service
+
+Open a new terminal and run:
+
+```bash
 cd Ai-service/music-gen-ai
 python app.py
+```
 
-//for running demucs server
+---
 
-go to in the Ai service 
+## 3. Start the Demucs AI Service
 
-open stem-separation-demucs-gradio-app
+Open another terminal and navigate to:
 
-and run run.bat
+```text
+Ai-service/stem-separation-demucs-gradio-app
+```
+
+Then run:
+
+```bash
+run.bat
+```
+
+---
+
+## ✅ After Starting All Services
+
+The application will be fully functional with:
+
+- Frontend
+- Backend
+- Music Generation (MusicGen)
+- Karaoke / Stem Separation (Demucs)
