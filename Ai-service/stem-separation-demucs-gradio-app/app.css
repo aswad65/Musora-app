@@ -1,0 +1,64 @@
+/* Centered page title (see gr.Markdown elem_id=app_title) */
+#app_title,
+#app_title .prose {
+    text-align: center;
+}
+#app_title h2 {
+    margin: 0 0 0.35em 0;
+    font-weight: 600;
+}
+#app_title p {
+    margin: 0;
+    opacity: 0.85;
+    font-size: 0.95em;
+}
+
+/* "### Stems" heading after separation */
+#stems_header,
+#stems_header .prose,
+#stems_header h3 {
+    text-align: center;
+}
+
+/* Status line: avoid a nested scroll area on long/wrapped text */
+#status_line,
+#status_line .prose,
+#status_line p {
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+/* Gradio progress overlay: keep horizontal bar visible; reduce nested scroll clipping */
+.gradio-container [class*="progress-level"],
+.gradio-container [class*="progress-bar-wrap"],
+.gradio-container [class*="wrap"]:has([class*="progress-bar-wrap"]) {
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+.gradio-container [class*="progress-level-inner"] {
+    overflow: visible !important;
+}
+
+/* Tqdm / Gradio progress: hide right-side text (e.g. 12/44, “seconds”) — bar only */
+.gradio-container [class*="progress-level"] [class*="meta-text"],
+.gradio-container [class*="meta-text-center"] {
+    display: none !important;
+}
+
+/* Gradio Audio: move 00:00 / duration below the waveform horizontal scrollbar */
+.gradio-container [class*="timestamps"] {
+    margin-top: 0.65rem;
+    padding-top: 0.15rem;
+}
+.gradio-container [class*="waveform-container"] {
+    padding-bottom: 0.35rem;
+}
+.gradio-container [class*="standard-player"] {
+    padding-bottom: 0.25rem;
+}
+
+/* Waveform scroll strip (shadow part): keep scrollbar from overlapping time row */
+.gradio-container [class*="waveform-wrapper"] ::part(scroll) {
+    padding-bottom: 0.45rem;
+}

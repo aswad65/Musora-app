@@ -1,0 +1,57 @@
+# ==========================
+# Backend
+# ==========================
+backend/node_modules/
+backend/.env
+backend/public/generated/
+backend/separated/
+backend/temp/
+backend/uploads/
+
+# ==========================
+# Frontend
+# ==========================
+frontend/node_modules/
+frontend/dist/
+
+# ==========================
+# MusicGen AI
+# ==========================
+Ai-service/music-gen-ai/venv/
+Ai-service/music-gen-ai/env/
+Ai-service/music-gen-ai/.venv/
+Ai-service/music-gen-ai/.gradio/
+Ai-service/music-gen-ai/__pycache__/
+Ai-service/music-gen-ai/*.pyc
+
+# ==========================
+# Demucs AI
+# ==========================
+Ai-service/stem-separation-demucs-gradio-app/venv/
+Ai-service/stem-separation-demucs-gradio-app/env/
+Ai-service/stem-separation-demucs-gradio-app/.venv/
+Ai-service/stem-separation-demucs-gradio-app/__pycache__/
+Ai-service/stem-separation-demucs-gradio-app/*.pyc
+
+# Generated runtime folders
+Ai-service/stem-separation-demucs-gradio-app/input/
+Ai-service/stem-separation-demucs-gradio-app/output/
+
+# ==========================
+# Logs
+# ==========================
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ==========================
+# OS files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# VS Code
+# ==========================
+.vscode/
