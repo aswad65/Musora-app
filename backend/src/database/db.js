@@ -1,21 +1,24 @@
-import sql from "mssql/msnodesqlv8.js";
+import sql from "mssql";
 
 let pool;
 
 export const connectDB = async () => {
   try {
-    if (pool) return pool; 
+    if (pool) return pool;
 
     pool = await sql.connect({
-      server: "localhost",
-      database: "Musicappdata",
-      driver: "msnodesqlv8",
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      server: process.env.DB_SERVER,
+      database: process.env.DB_NAME,
+
       options: {
-        trustedConnection: true
+        encrypt: true,
+        trustServerCertificate: false
       }
     });
 
-    console.log("✅ SQL Server connected");
+    console.log("✅ Azure SQL connected");
     return pool;
   } catch (error) {
     console.error("❌ Database connection failed:", error);
