@@ -70,6 +70,13 @@ BEGIN
         -- =========================
         DELETE FROM albumMusic
         WHERE MusicId = @MusicId
+
+        -- =========================
+          -- Delete Comments of Music References
+        -- =========================
+        DELETE FROM Comments
+        WHERE MusicId = @MusicId
+
         -- =========================
         -- Delete Music
         -- =========================

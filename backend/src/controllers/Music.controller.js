@@ -124,8 +124,8 @@ export const addmusicInsidAlbumController = async (req, res) => {
             
         }
 
-
-        const ids = JSON.parse(MusicIds);
+        const ides = JSON.parse(MusicIds);
+        const ids = JSON.stringify(ides);
         const result = await addmusicInsidAlbum(Title, Description, ids, userId, coverImageUrl);
         res.status(201).json({ message: "Album created successfully", result });
     } catch (error) {

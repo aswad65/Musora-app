@@ -11,7 +11,7 @@ import useFollowUser from '../Hooks/MusicHooks/Followandunfollow';
 import useGetMusicById from '../Hooks/MusicHooks/GetMusicById';
 import useGetFollower from '../Hooks/MusicHooks/GetFollower';
 import { usePlayer } from '../Context/PlayerContext';
-
+import { Link } from '@tanstack/react-router';
 // --- Sub-Component: Stat Card ---
 const StatCard = ({ icon: Icon, label, value, color }) => (
   <div className="stat-card bg-slate-900/40 p-5 rounded-2xl border border-slate-800/50 flex items-center gap-4 hover:bg-slate-800 transition-colors">
@@ -171,8 +171,11 @@ const ProfilePage = () => {
 
           <section>
             <h3 className="text-xl font-bold text-white mb-6">Recently Played</h3>
+               
                  <div className="space-y-2">
+          
               {songs?.map((i) => (
+                  <Link to ={`/musicpage/?musicId=${i.Id}`} >
                 <div key={i.Id} className="recent-item flex items-center justify-between p-3 rounded-xl bg-slate-900/30 hover:bg-slate-900/60 border border-slate-800/50 group cursor-pointer transition-all">
                   <div className="flex items-center gap-4">
                     <img src={i.bgPic} className="w-12 h-12 rounded-lg" alt="Cover" />
@@ -198,6 +201,7 @@ const ProfilePage = () => {
                     </button>
                   </div>
                 </div>
+                  </Link>
               ))}
             </div>
           </section>

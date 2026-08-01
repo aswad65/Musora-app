@@ -8,7 +8,6 @@ import { MoreHorizontal,Music, User, AlertCircle, RefreshCw, Plus } from 'lucide
 import { Link } from '@tanstack/react-router';
 import useGetalbum from '../Hooks/MusicHooks/Getalbum';
 import AlbumCard from './Componenetforalbum';
-import { useEffect, useState, useRef } from 'react';
 
 const DashboardPage = () => {
   const { data: userData, isLoading: isUsersLoading } = useGetAlluser();
@@ -16,42 +15,31 @@ const DashboardPage = () => {
   const {data:albumData}=useGetalbum();
   const albums=albumData?.result?.[0] || [];
 
-  
-  
-const [mixedData, setMixedData] = useState([]);
-const hasShuffled = useRef(false);
+  const mixedData = useMemo(() => {
+    if (!MusicData && !albums) return [];
 
-useEffect(() => {
-  if (!MusicData || !albums) return;
+    const musicItems =
+      MusicData?.map(item => ({
+        ...item,
+        contentType: "music",
+      })) || [];
 
-  
-  if (hasShuffled.current) return;
+    const albumItems =
+      albums?.map(item => ({
+        ...item,
+        contentType: "album",
+      })) || [];
 
-  const musicItems =
-    MusicData?.map(item => ({
-      ...item,
-      contentType: "music",
-    })) || [];
+    const combined = [...musicItems, ...albumItems];
 
-  const albumItems =
-    albums?.map(item => ({
-      ...item,
-      contentType: "album",
-    })) || [];
+    // Fisher-Yates Shuffle
+    for (let i = combined.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [combined[i], combined[j]] = [combined[j], combined[i]];
+    }
 
-  const combined = [...musicItems, ...albumItems];
-
-  // Fisher-Yates Shuffle
-  for (let i = combined.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [combined[i], combined[j]] = [combined[j], combined[i]];
-  }
-
-  setMixedData(combined);
-
-  hasShuffled.current = true;
-
-}, [MusicData, albums]);
+    return combined;
+  }, [MusicData, albums]);
 
   const onlyMusicTracks = useMemo(() => mixedData.filter(item => item.contentType === 'music'), [mixedData]);
 

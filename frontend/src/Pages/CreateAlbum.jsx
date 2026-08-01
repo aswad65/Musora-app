@@ -6,10 +6,12 @@ import {
 } from 'lucide-react';
 import MusicItem from '../Components/MusicLibrayItem';
 import useCreateAlbum from '../Hooks/MusicHooks/CreateAlbum';
-import useGetMyMusic from '../Hooks/MusicHooks/GetMyMusic';
+import useGetMyMusic from '../Hooks/MusicHooks/Getmymusic';
 import toast from 'react-hot-toast';
+import { useNavigate } from '@tanstack/react-router';
 
 const AlbumCreationPage = () => {
+  const navigate = useNavigate();
   // --- STATE ---
   const [albumTitle, setAlbumTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -63,7 +65,11 @@ const AlbumCreationPage = () => {
     
     formData.append("MusicIds", JSON.stringify(musicIds));
     
-    mutate({ FormData: formData });
+    mutate({ FormData: formData }, {
+      onSuccess: () => {
+        navigate({ to: '/' });
+      }
+    });
   };
 
   // --- ANIMATIONS ---

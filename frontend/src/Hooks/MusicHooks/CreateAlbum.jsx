@@ -9,7 +9,7 @@ const useCreateAlbum = () => {
         mutationFn: async ({ FormData }) => await CreateAlbum(FormData),
         onSuccess: () => {
             toast.success("Album created successfully");
-            queryClient.invalidateQueries(["albums"]);
+            queryClient.invalidateQueries({ queryKey: ["albums"] });
         },
         onError: (err) => {
             toast.error(err?.response?.data?.message || "Failed to create album");
