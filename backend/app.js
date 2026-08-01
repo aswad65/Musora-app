@@ -24,12 +24,13 @@ cloudinary.v2.config({
 });
 
       
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: [
+    "http://localhost:5173",              // local Vite frontend
+    "https://musora-app-z4vi.vercel.app"  // deployed frontend
+  ],
+  credentials: true
+}));
 app.use(cookieParser())
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: true }));
