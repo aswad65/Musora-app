@@ -30,7 +30,6 @@
     "fs-extra": "^11.3.5",
     "gradio-client": "^1.0.0",
     "jsonwebtoken": "^9.0.3",
-    "msnodesqlv8": "^5.2.0",
     "mssql": "^12.7.0",
     "multer": "^2.1.1",
     "nodemon": "^3.1.11"
