@@ -1,7 +1,7 @@
 import axios from "axios";
 export const authenticateUser = async () => {
   try {
-        const response = await axios.get("http://localhost:3000/api/users/getuser", {
+        const response = await axios.get("https://musora-app-production.up.railway.app/api/users/getuser", {
             withCredentials: true,
         });
 
