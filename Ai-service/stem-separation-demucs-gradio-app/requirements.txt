@@ -1,15 +1,9 @@
-# PyTorch (CUDA/CPU per wheels from PyPI; use pytorch.org if you need a specific CUDA build).
 torch
 torchaudio
-# NumPy 2.x breaks many PyTorch/torchaudio wheels (_ARRAY_API / "Failed to initialize NumPy").
 numpy<2
-# TorchAudio uses this backend on Windows (avoids "No audio backend is available").
 soundfile
-# TorchAudio 2.11+ may require this for load/save (Demucs separate_audio_file / save_audio).
 torchcodec
 
-# Web UI.
 gradio>=4.0
-# ``demucs.api`` (Separator, save_audio) exists on GitHub main only — not in PyPI 4.0.1.
-# https://github.com/facebookresearch/demucs/blob/main/docs/api.md
+
 demucs @ git+https://github.com/facebookresearch/demucs.git

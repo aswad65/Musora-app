@@ -85,10 +85,12 @@ def build_ui():
 
 if __name__ == "__main__":
     demo = build_ui()
-    demo.launch(
-        server_name="127.0.0.1",
-        server_port=7960,
-        share=False,
-        footer_links=[],
-        css_paths=PROJECT_ROOT / "app.css",
-    )
+  import os
+
+demo.launch(
+    server_name="0.0.0.0",
+    server_port=int(os.environ.get("PORT", 7960)),
+    share=False,
+    footer_links=[],
+    css_paths=PROJECT_ROOT / "app.css",
+)
