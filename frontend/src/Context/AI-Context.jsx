@@ -6,7 +6,7 @@ const AIContext = createContext()
 export const AIMusicProvider = ({children}) => {
     const Ai_prompt=async(prompt)=>{
         try {
-            const data = await axios.post("http://localhost:3000/api/users/Prompt_send_toPython",{prompt})
+            const data = await axios.post("https://musora-app-production.up.railway.app/api/users/Prompt_send_toPython",{prompt})
             return data
         } catch (error) {
             console.log(error)
@@ -15,7 +15,7 @@ export const AIMusicProvider = ({children}) => {
  const Ai_Karoke_servie=async(formdata)=>{
     try {
         // Send form data directly, don't wrap in object
-        const data = await axios.post("http://localhost:3000/api/users/Karoke_send_toPython", formdata, {
+        const data = await axios.post("https://musora-app-production.up.railway.app/api/users/Karoke_send_toPython", formdata, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }

@@ -4,11 +4,12 @@ axios.defaults.withCredentials = true
 import toast, { Toaster } from 'react-hot-toast';
 import router from '../routes/router';
 const UserContext = createContext()
+const USER_API_BASE_URL = 'https://musora-app-production.up.railway.app/api/users'
 
 export const UserProvider = ({ children }) => {
     const Registeruser = async (data) => {
         try {
-            const res = await axios.post("http://localhost:3000/api/users/register", { name: data.name, email: data.email, password: data.password })
+            const res = await axios.post(`${USER_API_BASE_URL}/register`, { name: data.name, email: data.email, password: data.password })
             toast.success(res?.data?.message || "Registration successful");
             router.navigate({to:"/"}) 
         }
@@ -19,7 +20,7 @@ export const UserProvider = ({ children }) => {
     }
     const Loginuser = async (data) => {
         try {
-            const res = await axios.post("http://localhost:3000/api/users/login", { email: data.email, password: data.password })
+            const res = await axios.post(`${USER_API_BASE_URL}/login`, { email: data.email, password: data.password })
             toast.success(res?.data?.message || "Login successful");
             router.navigate({to:"/"}) 
             
@@ -33,7 +34,7 @@ export const UserProvider = ({ children }) => {
 const getUser = async () => {
     try {
         const res = await axios.get(
-            "http://localhost:3000/api/users/getuser",
+            `${USER_API_BASE_URL}/getuser`,
             { withCredentials: true }
         );
 
@@ -46,7 +47,7 @@ const getUser = async () => {
 const getAllUsers = async () => {
     try {
         const res = await axios.get(
-            "http://localhost:3000/api/users/getallusers",
+            `${USER_API_BASE_URL}/getallusers`,
             { withCredentials: true }
         );
          return res.data?.message || [];}
@@ -58,7 +59,7 @@ const getAllUsers = async () => {
 async function GetSingleUser(Id){
     try {
         const res = await axios.get(
-            `http://localhost:3000/api/users/getuser/${Id}`,
+            `${USER_API_BASE_URL}/getuser/${Id}`,
             { withCredentials: true }
         );
         return res.data?.message || null;
@@ -74,7 +75,7 @@ const EditProfile=async(formdata)=>{
 console.log("data"+formdata);
 
         const res = await axios.put(
-            `http://localhost:3000/api/users/update-profile`,formdata,
+            `${USER_API_BASE_URL}/update-profile`,formdata,
             { withCredentials: true }
         );
         
@@ -88,7 +89,7 @@ console.log("data"+formdata);
 }
 const getUserProfile=async()=>{
     try {
-        const res = await axios.get("http://localhost:3000/api/users/loginUser", { withCredentials: true });
+        const res = await axios.get(`${USER_API_BASE_URL}/loginUser`, { withCredentials: true });
         return res.data?.message || null;
     } catch (err) {
         console.error(err);
@@ -99,7 +100,7 @@ const FollowUser=async(Id)=>{
     console.log("follow "+Id);
     
     try {
-        const res = await axios.post(`http://localhost:3000/api/users/follow`, {  Followinguser:Id }, { withCredentials: true });
+        const res = await axios.post(`${USER_API_BASE_URL}/follow`, {  Followinguser:Id }, { withCredentials: true });
         return res || null;
     } catch (err) {
         console.error(err);
@@ -110,7 +111,7 @@ const FollowUser=async(Id)=>{
 
 const LogoutUser=async()=>{
     try {
-        const res = await axios.post("http://localhost:3000/api/users/logout", {}, { withCredentials: true });
+        const res = await axios.post(`${USER_API_BASE_URL}/logout`, {}, { withCredentials: true });
         toast.success(res?.data?.message || "Logout successful");
         return res || null;
     } catch (err) {

@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast'
 
 const MusicContext = createContext()
 
-const API_BASE_URL = "http://localhost:3000/api/music";
+const API_BASE_URL = "https://musora-app-production.up.railway.app/api/music";
 
 export const MusicProvider = ({ children }) => {
 
