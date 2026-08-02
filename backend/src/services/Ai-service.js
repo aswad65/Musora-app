@@ -9,7 +9,7 @@ export const prompt_send_toPythonService = async (prompt) => {
 
         for (let i = 0; i < 6; i++) {
             const res = await axios.post(
-                "http://127.0.0.1:7860/gradio_api/run/generate_music",
+                "https://musora-app-production-b86f.up.railway.app/gradio_api/run/generate_music",
                 {
                     data: [
                         `${prompt}, part ${i + 1}, continuous music`,

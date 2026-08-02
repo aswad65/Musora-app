@@ -1,9 +1,7 @@
 torch
 torchaudio
 numpy<2
+gradio
+demucs @ git+https://github.com/facebookresearch/demucs.git
 soundfile
 torchcodec
-
-gradio>=4.0
-
-demucs @ git+https://github.com/facebookresearch/demucs.git

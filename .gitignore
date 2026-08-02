@@ -32,6 +32,9 @@ Ai-service/stem-separation-demucs-gradio-app/env/
 Ai-service/stem-separation-demucs-gradio-app/.venv/
 Ai-service/stem-separation-demucs-gradio-app/__pycache__/
 Ai-service/stem-separation-demucs-gradio-app/*.pyc
+Ai-service/stem-separation-demucs-gradio-app/run.bat
+Ai-service/stem-separation-demucs-gradio-app/setup.py
+
 
 # Generated runtime folders
 Ai-service/stem-separation-demucs-gradio-app/input/
