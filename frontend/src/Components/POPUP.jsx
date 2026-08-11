@@ -36,7 +36,6 @@ export const POPUP = ({ setShowPopUp }) => {
 
   // 4. Pretend Cutting Functionality
   const handleDeleteNotification = (id) => {
-    console.log("Pretend cutting functionality for notification:", id);
     // Locally hide the notification for now
     setHiddenIds(prev => [...prev, id]);
     // User will implement the actual bacon/button logic (API call) themselves

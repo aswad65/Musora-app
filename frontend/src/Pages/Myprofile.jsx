@@ -97,14 +97,12 @@ const MyprofilePage = () => {
     formData.append('file', file);
     e.preventDefault()
     mutate({ formdata: formData });
-    console.log({ formData });
 
     if (!Name || !file) {
       toast.error("Please fill in all fields")
       return
     }
 
-    // console.log("Submitting:", { Name, file })
     toast.success("Profile updated successfully!")
     handleClose()
   }

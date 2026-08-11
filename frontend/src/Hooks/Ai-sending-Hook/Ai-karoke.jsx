@@ -9,7 +9,6 @@ const useAiKarokeService = () => {
         mutationFn:(formdata)=>Ai_Karoke_servie(formdata), // Now expecting just formdata, not { formdata }
         onSuccess:(data)=>{
             toast.success("karaoke has been created!");
-            console.log("Karaoke creation success:", data);
         },
         onError:(err)=>{
             console.error("Karaoke creation error:", err);

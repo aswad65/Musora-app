@@ -82,7 +82,6 @@ export const MusicProvider = ({ children }) => {
   const GetMusicById = async (id) => {
     try {
       const { data } = await axios.get(`${API_BASE_URL}/get-Music/${id}`, { withCredentials: true })
-      console.log("Id", id);
       
       return data || []
     } catch (err) {

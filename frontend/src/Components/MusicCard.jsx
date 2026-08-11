@@ -14,7 +14,6 @@ import { usePlayer } from '../Context/PlayerContext';
   const {data:LikedMusic}=useGetlikemusicbyId(Music?.Id)
   const { playTrack, currentTrack, isPlaying } = usePlayer();
   const Liked = LikedMusic?.likedMusic?.[0]
-  console.log();
   
   const getTrackId = (track) => track?.Id || track?.MusicId || track?.MusicID || track?.id;
 

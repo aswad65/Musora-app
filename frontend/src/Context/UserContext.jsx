@@ -72,7 +72,6 @@ async function GetSingleUser(Id){
 const EditProfile=async(formdata)=>{
     
     try {
-console.log("data"+formdata);
 
         const res = await axios.put(
             `${USER_API_BASE_URL}/update-profile`,formdata,
@@ -97,7 +96,6 @@ const getUserProfile=async()=>{
     }
 }
 const FollowUser=async(Id)=>{
-    console.log("follow "+Id);
     
     try {
         const res = await axios.post(`${USER_API_BASE_URL}/follow`, {  Followinguser:Id }, { withCredentials: true });

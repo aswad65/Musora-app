@@ -55,7 +55,6 @@ const AIChatPanel = ({ isOpen, onClose, onMinimize }) => {
   // Handle AI response
   useEffect(() => {
     if (data) {
-      console.log("AI Response Data:", data);
 
       let botMessage;
       const responseData = data.data;

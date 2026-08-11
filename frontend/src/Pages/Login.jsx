@@ -9,7 +9,6 @@ export const Login = () => {
 
   const onSubmit = data => {
     mutate(data);
-    console.log(data);
   };
 
   return (

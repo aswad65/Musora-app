@@ -16,7 +16,6 @@ const CreateKaraoke = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(180)
   const [isPlaying, setIsPlaying] = useState(false);
-  console.log(selectedSong);
   const audioRef = useRef(null);
   const navigate = useNavigate();
 
@@ -28,7 +27,6 @@ const CreateKaraoke = () => {
   };
 
   const handlePlay = (audioKaraoke) => {
-    console.log("handlePlay called with audioKaraoke:", audioKaraoke);
     try {
       if (!audioRef.current) {
         audioRef.current = new Audio(getFullAudioUrl(audioKaraoke));
@@ -90,8 +88,7 @@ const CreateKaraoke = () => {
   
   // Fetch karaoke service
   const { mutate, isPending: isGenerating, data: karokeData, error: generationError } = useAiKarokeService();
-  console.log("asasa 1",karokeData?.data?.noVocalsUrl);
-   console.log("asasa 2",karokeData?.data?.[0]?.noVocalsUrl);
+
 
   
 
@@ -202,12 +199,10 @@ const CreateKaraoke = () => {
     
     // Check if selected song has a file (uploaded from computer)
     if (selectedSong.file) {
-      console.log("Appending uploaded file to formdata:", selectedSong.file.name);
       formdata.append("file", selectedSong.file);
     } 
     // If no file, check if it has an audioUrl (from My Music)
     else if (selectedSong.AudioFile) {
-      console.log("Appending audioUrl to formdata:", selectedSong.AudioFile);
       formdata.append("audioUrl", selectedSong.AudioFile);
     } 
     // Otherwise, error
@@ -216,7 +211,6 @@ const CreateKaraoke = () => {
       return;
     }
     
-    console.log("Sending formdata to backend");
     mutate(formdata); // Notice: we're passing formdata directly, not wrapped in { formdata }
   };
 

@@ -9,9 +9,7 @@ import useGetLikedMusic from '../Hooks/MusicHooks/GetLikeMusics.JSX';
 
 const LikedPage = () => {
   const { data } = useGetLikedMusic();
-  // console.log("DATA FULL:", data); 
   
-  // const [search, setSearch] = useState("");
 const songs = data?.result?.[0] || [];  // Access the first array inside result
                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 

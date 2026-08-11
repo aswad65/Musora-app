@@ -72,7 +72,6 @@ const MusicPlayerPage = () => {
   };
 
   const handleLike=()=>{
-    console.log(songs?.userID);
     
     likeMusic({MusicId:musicId,ownerId:songs?.userID});
   }

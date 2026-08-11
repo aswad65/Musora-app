@@ -15,7 +15,6 @@ const useFollowUser = () => {
     const res = data.data.result[0][0]; // 👈 important
 
     toast.success(res.Message); // show backend message
-    console.log(res);
     queryClient.invalidateQueries(["GetNotification"]);
      queryClient.invalidateQueries(["GetAllUsers"]);
      queryClient.invalidateQueries(["GetFollower"]);

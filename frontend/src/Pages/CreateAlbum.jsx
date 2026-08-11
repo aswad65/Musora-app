@@ -61,7 +61,6 @@ const AlbumCreationPage = () => {
     }
     // We send only the IDs
     const musicIds = selectedSongs.map(s => s.Id);
-    console.log("musicIds:", musicIds);
     
     formData.append("MusicIds", JSON.stringify(musicIds));
     

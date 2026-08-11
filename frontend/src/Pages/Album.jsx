@@ -19,7 +19,6 @@ const AlbumPage = () => {
 
   const albumSongs = album?.result || [];
   const albumDetails = albumSongs[0] || {};
-  console.log(albumDetails);
   
   const displaySongs = useMemo(() => {
     if (!isShuffled) return albumSongs;
