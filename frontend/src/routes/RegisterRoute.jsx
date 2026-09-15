@@ -7,9 +7,14 @@ export const RegisterRoute = new Route({
     getParentRoute: () => rootRoute,
     path: "/register",
     beforeLoad: async () => {
-        const authuser = await authenticateUser();
-        if (authuser) {
-            throw redirect({to:'/'});
+        try {
+            const authuser = await authenticateUser();
+            if (authuser) {
+                throw redirect({to:'/'});
+            }
+        } catch (err) {
+            if (err?.to) throw err;
+            console.warn("Auth check failed on register route, treating as unauthenticated:", err?.message);
         }
     },
     component: Register,

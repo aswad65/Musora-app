@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useContext,createContext } from "react"
+import toast from 'react-hot-toast'
 
 
 const AIContext = createContext()

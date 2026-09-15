@@ -12,6 +12,7 @@ import SearchBar from './SearchBar';
 import GlobalPlayer from './GlobalPlayer';
 import AIIntroModal from './AIIntroModal';
 import AIChatPanel from './AIChatPanel';
+import { NotificationListener } from './notifiction.jsx';
 
 
 const AppLayout = ({ children }) => {
@@ -95,6 +96,7 @@ const AppLayout = ({ children }) => {
  
   return (
     <div className="flex h-screen bg-slate-950 text-slate-200 overflow-hidden font-sans">
+      <NotificationListener />
       {/* Background Overlay */}
       <div 
         ref={overlayRef}
